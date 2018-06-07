@@ -1,0 +1,25 @@
+page-home {
+    .btnFab {
+        bottom: 8%;
+        right: 5%;
+    }
+    .searchbar-md .searchbar-input {
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+    .backgroundIcon {
+       border-radius: 50%!important;
+       display: inline-block!important;
+       width: 47px!important;
+       text-align: center!important;
+       height: 47px!important;
+    }
+    .iconCliente {
+        font-size: 2em;
+        margin-top: 14%;
+        color: white;
+    }
+    .label{
+        font-size: 15px;
+    }
+}

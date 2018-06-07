@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        <ion-row *ngIf="!pesquisar">
+          <ion-col col-9>
+            Agenda de Clientes
+          </ion-col>
+          <ion-col col-1>
+            <ion-icon name="search" (click)="habilitarPesquisa();"></ion-icon>
+          </ion-col>
+          <ion-col col-1 style="margin-left: 15px">
+            <ion-icon name="refresh" (click)="reload()"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="pesquisar">
+          <ion-col col-1>
+            <ion-icon (click)="ocultarPesquisa()" name="arrow-back" style="margin-top: 65%"></ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <ion-input id="input" (input)="getItems($event)" autofocus placeholder="Search"></ion-input>
+          </ion-col>
+        </ion-row>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <div *ngIf="carregando" style="text-align: center; margin-top: 50%;"> 
+    <ion-spinner name="bubbles"></ion-spinner>
+    <p class="label">Carregando Lista...</p>
+  </div>
+
+  <div *ngIf="grupoClientes.length === 0 && !carregando" style="text-align: center; margin-top: 50%;"> 
+    <p class="label">Nenhum Cliente Localizado...</p>
+  </div>
+
+  <ion-list>
+    <ion-item-group *ngFor="let group of grupoClientes, let indexGrupo = index">
+      <ion-item-divider color="light">{{group.letra}}</ion-item-divider>
+        <ion-item *ngFor="let cliente of group.cliente, let indexCli = index" (click)="presentActionSheet(indexGrupo, indexCli)">
+          <ion-avatar item-start class="backgroundIcon" [ngStyle]="{'background-color': cliente.cor}">
+            <ion-icon name="person" class="iconCliente"></ion-icon>
+          </ion-avatar>
+          <h2>{{cliente.nome}}</h2>
+          <h3>{{cliente.email}}</h3>
+          <p>{{cliente.telefone}}</p>
+        </ion-item>
+
+    </ion-item-group>
+  </ion-list>
+
+
+  <ion-fab class="btnFab">
+    <button ion-fab color="primary" (click)="newClient()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+  </ion-fab>
+
+</ion-content>
