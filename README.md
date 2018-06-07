@@ -16,3 +16,6 @@ Passos:
 Para debugar no celular, basta realizar os seguintes comandos:
 - `ionic cordova platform add android` (adiciona a plataforma android)
 - `ionic cordova run android` (debug no aparelho que estiver conectado via USB)
+
+Para gerar o APK:
+- `ionic cordova build android`
