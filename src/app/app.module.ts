@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NovoClientePage } from '../pages/novo-cliente/novo-cliente';
+import { NovaPaginaPage } from '../pages/nova-pagina/nova-pagina'
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    NovoClientePage
+    NovoClientePage,
+    NovaPaginaPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { NovoClientePage } from '../pages/novo-cliente/novo-cliente';
   entryComponents: [
     MyApp,
     HomePage,
-    NovoClientePage
+    NovoClientePage,
+    NovaPaginaPage
   ],
   providers: [
     StatusBar,
